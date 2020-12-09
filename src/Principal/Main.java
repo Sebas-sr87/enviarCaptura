@@ -8,6 +8,7 @@ package Principal;
 import capturar.Capturar;
 import javax.swing.JOptionPane;
 import model.dao.Usuario;
+import static peticiones.login.loginUusaurio;
 
 /**
  *
@@ -96,9 +97,9 @@ public class Main extends javax.swing.JFrame {
             String user = this.txtusuario.getText();
             String pass = this.txtpass.getText();
             if (!"".equals(user) && "" != pass) {
-                Usuario login = capturar.Query.login(user, pass);
-                if (login != null) {
-                    Usuario.usuario = login;
+                Usuario loginUusaurio = loginUusaurio(user, pass);
+                if (loginUusaurio.getNombre() != null) {
+                     Usuario.usuario = loginUusaurio;
                     MainDos pantallaDos = new MainDos();
                     pantallaDos.setVisible(true);
                     capturar.Capturar.cambio = true;
@@ -106,14 +107,13 @@ public class Main extends javax.swing.JFrame {
                     Thread t = new Thread(c);
                     t.start();
                     this.setVisible(false);
-                }
-                else{
+                } else {
                     JOptionPane.showMessageDialog(this, "Incorrecto");
-                
                 }
+
             }
         } catch (Exception e) {
-            System.out.println("Error: "+e.toString());
+            System.out.println("Error: " + e.toString());
         }
 
 

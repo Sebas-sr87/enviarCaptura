@@ -5,9 +5,9 @@
  */
 package capturar;
 
-import com.profesorfalken.jpowershell.PowerShell;
-import com.profesorfalken.jpowershell.PowerShellNotAvailableException;
-import com.profesorfalken.jpowershell.PowerShellResponse;
+//import com.profesorfalken.jpowershell.PowerShell;
+//import com.profesorfalken.jpowershell.PowerShellNotAvailableException;
+//import com.profesorfalken.jpowershell.PowerShellResponse;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -43,21 +43,21 @@ public class Procesos {
     }
 
     public static void ejecutarScript(BufferedReader objReader) {
-        try (PowerShell powerShell = PowerShell.openSession()) {
+//        try (PowerShell powerShell = PowerShell.openSession()) {
 //            System.out.println("******Ejecutando Script******");
-            PowerShellResponse executeScript = powerShell.executeScript(objReader);
-            System.out.println("Script output:" + executeScript.getCommandOutput());
+//            PowerShellResponse executeScript = powerShell.executeScript(objReader);
+//            System.out.println("Script output:" + executeScript.getCommandOutput());
             while (true) {    
-               PowerShellResponse executCommand = powerShell.executeCommand("$a = [tricks]::GetForegroundWindow()");
+//               PowerShellResponse executCommand = powerShell.executeCommand("$a = [tricks]::GetForegroundWindow()");
 
-                PowerShellResponse executeCommand = powerShell.executeCommand("get-process | ? { $_.mainwindowhandle -eq $a } | Select -ExpandProperty Name");
-                System.out.println("Script output:" + executeCommand.getCommandOutput());
+//                PowerShellResponse executeCommand = powerShell.executeCommand("get-process | ? { $_.mainwindowhandle -eq $a } | Select -ExpandProperty Name");
+//                System.out.println("Script output:" + executeCommand.getCommandOutput());
             }
             
 //            powerShell.close();
-        } catch (Exception e) {
-            System.out.println("Error ejecutar Script: " + e.toString());
-        }
+//        } catch (Exception e) {
+//            System.out.println("Error ejecutar Script: " + e.toString());
+//        }
     }
    
 

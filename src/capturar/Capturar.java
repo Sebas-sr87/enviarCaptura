@@ -6,6 +6,7 @@
 package capturar;
 
 import Principal.MainDos;
+import static capturar.Query.login;
 import java.awt.AWTException;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
@@ -28,6 +29,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import model.dao.Usuario;
+import peticiones.login;
 
 /**
  *
@@ -115,7 +117,7 @@ public class Capturar implements Runnable {
 //                    + "<idusuario>" + use.id_usuario + "</idusuario>"
 //                    + "	<nombre>" + use.nombre+ "</nombre>\n"
                     + "<idusuario>" + 1 + "</idusuario>"
-                    + "	<nombre> sebastian</nombre>\n"
+                    + "	<nombre>sebastian</nombre>\n"
                     + "<horavideo>" + numerovideo + "</horavideo>"
                     + "	<imagen>" + imagenString + "</imagen>\n"
                     + "<nombreimagen>" + nombreImagen + "</nombreimagen>"
@@ -154,7 +156,7 @@ public class Capturar implements Runnable {
 //                    System.out.println(" for Cambio true");
                     try {
                         String nombrecompleto = nombre + j;
-                        Boolean estadoUsuario = Query.estadoUsuario(user.getId_usuario());
+                        Boolean estadoUsuario = login.estadoUsuario(user.getId_usuario());
                         if (estadoUsuario) {
                             Boolean capturarImagen = capturarImagen(nombrecompleto, i);
                             if (capturarImagen) {

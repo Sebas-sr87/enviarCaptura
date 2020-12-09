@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.dao.Usuario;
+import peticiones.login;
 
 /**
  *
@@ -94,14 +95,14 @@ public class MainDos extends javax.swing.JFrame {
     private void btntramitesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntramitesActionPerformed
         // TODO add your handling code here:
         int id = user.getId_usuario();
-        Boolean estadoanterior = Query.estadoUsuario(id);
+        Boolean estadoanterior = login.estadoUsuario(id);
         boolean cambia_a;
         if (estadoanterior) {
             cambia_a = false;
         } else {
             cambia_a = true;
         }
-        Boolean estadoUsuario = Query.cambiarEstado(cambia_a, id,this);
+        Boolean estadoUsuario = login.cambiarEstado(cambia_a, id);
         if (estadoUsuario) {
            capturar.Capturar.cambio=cambia_a;
             this.txtareaCapturas.append("\nEstado del usuario " + user.getNombre() + " " + user.getApellido() + " ha cambiado");
@@ -147,7 +148,7 @@ public class MainDos extends javax.swing.JFrame {
     }
     public void agregarTextArea(String datos){
         
-        this.txtareaCapturas.append("\n"+datos + " - "+ Query.lahora());
+        this.txtareaCapturas.append("\n"+datos + " - "+ new     Date());
         
         
     }
